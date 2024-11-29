@@ -1,0 +1,13 @@
+defaults:
+  - datasets
+
+pre_training:
+  datasets:
+    - FSS
+
+main_training:
+  datasets:
+    - DAVIS
+    - YouTubeVOS
+  num_iterations: 125000
+  lr_schedule_steps: [100000, 115000]

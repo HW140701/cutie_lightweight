@@ -1,5 +1,6 @@
 image_datasets:
-  base: ../static
+  #base: ../static
+  base: //192.168.97.181/huangwang/static
   FSS:
     directory: fss
     data_structure: 0

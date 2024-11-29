@@ -1,3 +1,12 @@
+import sys
+import os
+# 获取当前文件的目录
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# 获取项目根目录（假设您的主程序在项目根目录或其子目录中）
+project_root = os.path.dirname(current_dir)  # 如果主程序在根目录，这行可以删除
+# 将项目根目录添加到 Python 路径
+sys.path.append(project_root)
+
 import os
 import time
 import math
@@ -22,7 +31,8 @@ log = logging.getLogger()
 
 
 def distributed_setup():
-    distributed.init_process_group(backend="nccl")
+    #distributed.init_process_group(backend="nccl")
+    distributed.init_process_group(backend="gloo")
     local_rank = distributed.get_rank()
     world_size = distributed.get_world_size()
     log.info(f'Initialized: local_rank={local_rank}, world_size={world_size}')
@@ -34,7 +44,7 @@ def info_if_rank_zero(msg):
         log.info(msg)
 
 
-@hydra.main(version_base='1.3.2', config_path='config', config_name='train_config.yaml')
+@hydra.main(version_base='1.3.2', config_path='config', config_name='train_config_lightweight.yaml')
 def train(cfg: DictConfig):
     # initial setup
     distributed_setup()
