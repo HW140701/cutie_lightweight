@@ -1,6 +1,6 @@
 image_datasets:
   #base: ../static
-  base: //192.168.97.181/huangwang/static
+  base: //192.168.97.181/huangwang/cutie_train_datasets/static
   FSS:
     directory: fss
     data_structure: 0
@@ -17,6 +17,10 @@ image_datasets:
     directory: ecssd
     data_structure: 1
     multiplier: 1
+  CSSD:
+    directory: cssd
+    data_structure: 1
+    multiplier: 1
   BIG:
     directory: BIG_small
     data_structure: 1
@@ -27,7 +31,8 @@ image_datasets:
     multiplier: 5
 
 vos_datasets:
-  base: ../
+  #base: ../
+  base: //192.168.97.181/huangwang/cutie_train_datasets/vos
   DAVIS:
     image_directory: DAVIS/2017/trainval/JPEGImages/480p
     mask_directory: DAVIS/2017/trainval/Annotations/480p

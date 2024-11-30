@@ -19,8 +19,8 @@ num_workers: 16
 
 log_text_interval: 100
 log_image_interval: 1500
-save_weights_interval: 200
-save_checkpoint_interval: 200
+save_weights_interval: 1000
+save_checkpoint_interval: 1000
 
 pre_training:
   name: pre_training
@@ -48,8 +48,8 @@ pre_training:
 
 main_training:
   name: main_training
-  enabled: False
-  batch_size: 16
+  enabled: True
+  batch_size: 4
   amp: True
   num_iterations: ${data.main_training.num_iterations}
   learning_rate: 1.0e-4

@@ -1,5 +1,6 @@
 import sys
 import os
+import platform
 # 获取当前文件的目录
 current_dir = os.path.dirname(os.path.abspath(__file__))
 # 获取项目根目录（假设您的主程序在项目根目录或其子目录中）
@@ -31,8 +32,13 @@ log = logging.getLogger()
 
 
 def distributed_setup():
-    #distributed.init_process_group(backend="nccl")
-    distributed.init_process_group(backend="gloo")
+    if platform.system().lower() == 'linux':
+        distributed.init_process_group(backend="nccl")
+    elif platform.system().lower() == 'windows':
+        distributed.init_process_group(backend="gloo")
+    else:
+        raise NotImplementedError
+
     local_rank = distributed.get_rank()
     world_size = distributed.get_world_size()
     log.info(f'Initialized: local_rank={local_rank}, world_size={world_size}')
