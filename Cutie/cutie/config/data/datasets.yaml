@@ -1,6 +1,7 @@
 image_datasets:
   #base: ../static
-  base: //192.168.97.181/huangwang/cutie_train_datasets/static
+  #base: //192.168.97.181/huangwang/cutie_train_datasets/static
+  base: /xsky/huangwang/cutie_train_datasets/static
   FSS:
     directory: fss
     data_structure: 0
@@ -32,7 +33,8 @@ image_datasets:
 
 vos_datasets:
   #base: ../
-  base: //192.168.97.181/huangwang/cutie_train_datasets/vos
+  #base: //192.168.97.181/huangwang/cutie_train_datasets/vos
+  base: /xsky/huangwang/cutie_train_datasets/vos
   DAVIS:
     image_directory: DAVIS/2017/trainval/JPEGImages/480p
     mask_directory: DAVIS/2017/trainval/Annotations/480p
