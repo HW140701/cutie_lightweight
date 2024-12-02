@@ -11,9 +11,9 @@ from cutie.inference.utils.args_utils import get_dataset_cfg
 from cutie.utils.download_models import download_models_if_needed
 
 
-def get_default_model() -> CUTIE:
+def get_default_model(config_name: str = "eval_config") -> CUTIE:
     initialize(version_base='1.3.2', config_path="../config", job_name="eval_config")
-    cfg = compose(config_name="eval_config")
+    cfg = compose(config_name=config_name)
 
     weight_dir = download_models_if_needed()
     with open_dict(cfg):

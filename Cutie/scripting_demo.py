@@ -20,7 +20,8 @@ def main():
     # you might want to experiment with different sizes, -1 keeps the original size
     processor.max_internal_size = 480
 
-    image_path = './examples/images/bike'
+    #image_path = './examples/images/bike'
+    image_path = './workspace/car/images'
     # ordering is important
     images = sorted(os.listdir(image_path))
 
@@ -28,7 +29,8 @@ def main():
     # NOTE: this should be a grayscale mask or a indexed (with/without palette) mask,
     # and definitely NOT a colored RGB image
     # https://pillow.readthedocs.io/en/stable/handbook/concepts.html: mode "L" or "P"
-    mask = Image.open('./examples/masks/bike/00000.png')
+    #mask = Image.open('./examples/masks/bike/00000.png')
+    mask = Image.open('./workspace/car/masks/0000000.png')
     assert mask.mode in ['L', 'P']
 
     # palette is for visualization
