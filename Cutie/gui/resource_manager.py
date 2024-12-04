@@ -189,7 +189,8 @@ class ResourceManager:
                     new_w = (w * self.max_size // min(w, h))
                     new_h = (h * self.max_size // min(w, h))
                     frame = cv2.resize(frame, dsize=(new_w, new_h), interpolation=cv2.INTER_AREA)
-                cv2.imwrite(path.join(self.image_dir, f'{frame_index:07d}.jpg'), frame)
+                #cv2.imwrite(path.join(self.image_dir, f'{frame_index:07d}.jpg'), frame)
+                cv2.imencode('.jpg', frame)[1].tofile(path.join(self.image_dir, f'{frame_index:07d}.jpg'))
                 frame_index += 1
                 bar.update()
         print('Done!')
