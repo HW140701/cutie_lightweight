@@ -3,7 +3,7 @@ import os
 from inference_video import inference_video, initialize_processor
 
 def find_video_files(folder_path):
-    video_extensions = ['.mp4', '.avi', '.mkv', '.flv', '.wmv', '.mov', 'mts']
+    video_extensions = ['.mp4', '.avi', '.mkv', '.flv', '.wmv', '.mov', '.mts', '.m4v']
     video_files = []
 
     for root, dirs, files in os.walk(folder_path):
